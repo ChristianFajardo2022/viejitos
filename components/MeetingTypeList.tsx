@@ -41,8 +41,7 @@ const MeetingTypeList = () => {
       const id = crypto.randomUUID();
       const call = client.call('default', id);
       if (!call) throw new Error('Failed to create meeting');
-      const startsAt =
-        values.dateTime.toISOString() || new Date(Date.now()).toISOString();
+      const startsAt = values.dateTime.toISOString();
       const description = values.description || 'Instant Meeting';
       await call.getOrCreate({
         data: {
@@ -112,6 +111,7 @@ const MeetingTypeList = () => {
             </label>
             <Textarea
               className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+              value={values.description}
               onChange={(e) =>
                 setValues({ ...values, description: e.target.value })
               }
@@ -159,6 +159,7 @@ const MeetingTypeList = () => {
       >
         <Input
           placeholder="Meeting link"
+          value={values.link}
           onChange={(e) => setValues({ ...values, link: e.target.value })}
           className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
         />
