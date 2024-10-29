@@ -27,10 +27,10 @@ const MeetingModal = ({
   children,
   handleClick,
   buttonText,
-  instantMeeting,
-  image,
-  buttonClassName,
-  buttonIcon,
+/*   instantMeeting,
+ */  image,
+/*   buttonClassName,
+ */  buttonIcon,
 }: MeetingModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
